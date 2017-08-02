@@ -32,7 +32,7 @@ namespace Borzakov.TestTask.SimpleToDoList
         {
             // Add framework services.
             services.AddMvc();
-            var connection = @"Server=SLAVA2809-PC\MYSQLSERVER000;Database=SimpleToDoList;Trusted_Connection=True;";
+            var connection = @"Server=Server;Database=SimpleToDoList;Trusted_Connection=True;";
             services.AddDbContext<SimpleToDoListContext>(options => options.UseSqlServer(connection));
             services.AddTransient<IDbService, DbService>();
         }
