@@ -1,0 +1,32 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                <form class="todo" ng-submit="$ctrl.addTask()">
+                    <input type="text" ng-model="$ctrl.newName" placeholder="I want to..." ng-pattern="/^[A-Za-zА-Яа-я\d ]{3,20}$/" required/>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tr ng-repeat="task in $ctrl.taskList">
+        <td>
+            <label class="checkbox">
+                <input ng-model="task.isDone" ng-change="$ctrl.checkTask(task.taskId)" type="checkbox"><span></span>
+            </label>
+        </td>
+        <td class="main-text">
+            <span ng-class="{'crossed-text': task.isDone}">
+                {{task.text}}
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="footer-text">
+            {{$ctrl.taskCount}} task(s)
+        </td>
+    </tr>
+</table>
+
+
